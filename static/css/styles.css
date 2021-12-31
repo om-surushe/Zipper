@@ -1,56 +1,75 @@
-body{
-    /* color: #487cbb; */
-    font-family: Arial, Helvetica, sans-serif;
-    text-align: center;
-    /* background-color: #4ea179; */
+body {
+  /* color: #487cbb; */
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  /* background-color: #4ea179; */
 }
 
-h2{
-    margin-bottom: 1rem;
+h2 {
+  margin-bottom: 1rem;
 }
 
 #heading {
-    font-size: 2.5rem;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+  font-size: 2.5rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
-.card{
-    width: 30rem;
-    height: 27rem;
-    text-align: center;
-    margin: 0 auto;
-    border: 4px double;
-    padding: 5rem 0;
-    background-color: #9a9e30;
+.card {
+  width: 30rem;
+  height: 27rem;
+  text-align: center;
+  margin: 0 auto;
+  border: 4px double;
+  padding: 5rem 0;
+  background-color: #9a9e30;
 }
 
-#uploadfile{
-    margin-top: 1rem;
-    margin-bottom: 0.5rem;
-    width: 16rem;
+#uploadfile {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  width: 16rem;
 }
 
-#encode,#decode{
-    margin-top: 1rem;
-    margin-right: 0.2rem;
+#encode,
+#decode {
+  margin-top: 1rem;
+  margin-right: 0.2rem;
 }
 
-#step2,#step3{
-    display: none;
+#step2,
+#step3 {
+  display: none;
 }
 
-#startagain{
-    visibility:hidden;
-    display: block;
-    margin: 2rem auto 0;
+#startagain {
+  visibility: hidden;
+  display: block;
+  margin: 2rem auto 0;
 }
 
-.text2{
-    font-size: 1.5rem;
+.text2 {
+  font-size: 1.5rem;
 }
 
-#doneImg{
-    width: 10rem;
-    margin: auto;
+#doneImg {
+  width: 10rem;
+  margin: auto;
+}
+
+.compress {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 30px;
+}
+
+.header {
+  background-color: aqua;
+  padding: 10px;
+  margin: 5%;
+}
+
+.header h5 {
+  text-align: center;
 }
