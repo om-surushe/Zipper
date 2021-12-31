@@ -11,8 +11,8 @@ def home(request):
 def decompressor(request,id):
     id = int(id)
     user_message = Data.objects.get(pk = id)
-    message = user_message.encoded_string
-    return HttpResponse(message)
+    secret = user_message.encoded_string
+    return render(request,"decomp.html",{"secret":secret})
 
 def ecodetext(request):
     if request.method == "POST":

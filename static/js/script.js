@@ -358,7 +358,7 @@ window.onload = function () {
 			let [encodedString, outputMsg] = codecObj.encode(text);
 			// myDownloadFile(uploadedFile.name.split('.')[0] + "_compressed.txt", encodedString);
 
-			secrettext = encodeURIComponent(encodedString);
+			secrettext = encodedString.toString();
 			console.log(secrettext);
 			eformTxt.value = secrettext;
 			eformRatio.value = outputMsg;
