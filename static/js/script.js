@@ -129,8 +129,6 @@ class Codec {
 			let final_string = "zer#";
 
 			let output_message =
-				"Compression completed and now you can share the above link" +
-				"\n" +
 				"Compression Ratio : " +
 				(data.length / final_string.length).toPrecision(6);
 			return [final_string, output_message];
@@ -144,8 +142,6 @@ class Codec {
 			}
 			let final_string = "one" + "#" + key + "#" + value.toString();
 			let output_message =
-				"Compression complete and file will be downloaded automatically." +
-				"\n" +
 				"Compression Ratio : " +
 				(data.length / final_string.length).toPrecision(6);
 			return [final_string, output_message];
@@ -196,8 +192,6 @@ class Codec {
 			tree_string +
 			encoded_data;
 		let output_message =
-			"Compression complete and file will be downloaded automatically." +
-			"\n" +
 			"Compression Ratio : " +
 			(data.length / final_string.length).toPrecision(6);
 		return [final_string, output_message];
@@ -218,7 +212,7 @@ class Codec {
 		if (temp === "zer") {
 			let decoded_data = "";
 			let output_message =
-				"De-Compression complete and file will be downloaded automatically.";
+				"";
 			return [decoded_data, output_message];
 		}
 		if (temp === "one") {
@@ -237,7 +231,7 @@ class Codec {
 				decoded_data += one_char;
 			}
 			let output_message =
-				"De-Compression complete and file will be downloaded automatically.";
+				"";
 			return [decoded_data, output_message];
 		}
 		data = data.slice(k + 1);
