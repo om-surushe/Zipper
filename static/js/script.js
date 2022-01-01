@@ -129,7 +129,7 @@ class Codec {
 			let final_string = "zer#";
 
 			let output_message =
-				"Compression complete and file will be downloaded automatically." +
+				"Compression completed and now you can share the above link" +
 				"\n" +
 				"Compression Ratio : " +
 				(data.length / final_string.length).toPrecision(6);
