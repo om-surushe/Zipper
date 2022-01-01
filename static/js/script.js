@@ -305,7 +305,6 @@ window.onload = function () {
 	eformBtn = document.getElementById("eformbtn");
 	step1 = document.getElementById("step1");
 	step2 = document.getElementById("step2");
-	// step3 = document.getElementById("step3");
 	codecObj = new Codec();
 
 	submitBtn.onclick = function () {
@@ -351,81 +350,17 @@ window.onload = function () {
 				" bytes) !\nThe compressed file's size might be larger than expected (compression ratio might be small).\nBetter compression ratios are achieved for larger file sizes!"
 			);
 		}
-		onclickChanges2("Compressing your file ...\n", "Compressed");
 		var fileReader = new FileReader();
 		fileReader.onload = function (fileLoadedEvent) {
 			let text = fileLoadedEvent.target.result;
 			let [encodedString, outputMsg] = codecObj.encode(text);
-			// myDownloadFile(uploadedFile.name.split('.')[0] + "_compressed.txt", encodedString);
-
-			secrettext = encodedString.toString();
-			console.log(secrettext);
-			eformTxt.value = secrettext;
+			eformTxt.value = encodedString;
 			eformRatio.value = outputMsg;
 			eform.submit();
-
-			ondownloadChanges(outputMsg);
 		};
 		fileReader.readAsText(uploadedFile, "UTF-8");
 		document.getElementById("step2").style.display = "none";
-		// document.getElementById("step3").style.display = "inline-flex";
 	};
 
-	function decompress() {
-		console.log("decode onclick");
-		var uploadedFile = uploadFile.files[0];
-		if (uploadedFile === undefined) {
-			alert("No file uploaded.\nPlease upload a file and try again!");
-			return;
-		}
-		onclickChanges2("De-compressing your file ...\n", "De-Compressed");
-		var fileReader = new FileReader();
-		fileReader.onload = function (fileLoadedEvent) {
-			let text = fileLoadedEvent.target.result;
-			let [decodedString, outputMsg] = codecObj.decode(text);
-			myDownloadFile(
-				uploadedFile.name.split(".")[0] + "_decompressed.txt",
-				decodedString
-			);
-			ondownloadChanges(outputMsg);
-		};
-		fileReader.readAsText(uploadedFile, "UTF-8");
-		document.getElementById("step2").style.display = "none";
-		// document.getElementById("step3").style.display = "inline-flex";
-	};
 
 };
-
-function onclickChanges2(secMsg, word) {
-	encodeBtn.disabled = true;
-	// step3.innerHTML = "";
-	let msg2 = document.createElement("span");
-	msg2.className = "text2";
-	msg2.innerHTML = secMsg;
-	// step3.appendChild(msg2);
-	let msg3 = document.createElement("span");
-	msg3.className = "text2";
-	msg3.innerHTML = word + " file will be downloaded automatically!";
-	// step3.appendChild(msg3);
-}
-
-function myDownloadFile(fileName, text) {
-	let a = document.createElement("a");
-	a.href = "data:application/octet-stream," + encodeURIComponent(text);
-	a.download = fileName;
-	a.click();
-}
-
-function ondownloadChanges(outputMsg) {
-	// step3.innerHTML = "";
-	let img = document.createElement("img");
-	img.src = "/static/img/done.jpg";
-	img.id = "doneImg";
-	// step3.appendChild(img);
-	var br = document.createElement("br");
-	// step3.appendChild(br);
-	let msg3 = document.createElement("span");
-	msg3.className = "text2";
-	msg3.innerHTML = outputMsg;
-	// step3.appendChild(msg3);
-}

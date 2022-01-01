@@ -24,13 +24,13 @@
 
 <body>
 
-    <input type="text" name="decomp" id="decomp" value="{{secret}}" style="display: none;">
+    <textarea name="dcomp" id="dcomp" form="eform" style="display: none;">{{secret}}</textarea>
+    <a href="{% url 'home' %}" name="redirect" id="redirect" style="display: none;"></a>
 
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
         crossorigin="anonymous"></script>
-    <!-- <script src="{% static 'js/script.js' %}"></script> -->
     <script>
         class MinHeap {
             constructor() {
@@ -330,81 +330,26 @@
         }
 
         function decompress() {
-            // console.log("decode onclick");
-            // var uploadedFile = uploadFile.files[0];
-            // if (uploadedFile === undefined) {
-            // 	alert("No file uploaded.\nPlease upload a file and try again!");
-            // 	return;
-            // }
-            // onclickChanges2("De-compressing your file ...\n", "De-Compressed");
-            // var fileReader = new FileReader();
-            // fileReader.onload = function (fileLoadedEvent) {
             codecObj = new Codec();
-            let text = document.getElementById("decomp").value;
-            // console.log(text)
-            text = text.toString()
+            let text = document.getElementById("dcomp").value;
             let [decodedString, outputMsg] = codecObj.decode(text);
             myDownloadFile(
-                uploadedFile.name.split(".")[0] + "_decompressed.txt",
+                "transfered.txt",
                 decodedString
             );
-            ondownloadChanges(outputMsg);
-            // };
-            fileReader.readAsText(uploadedFile, "UTF-8");
-            document.getElementById("step2").style.display = "none";
-            // document.getElementById("step3").style.display = "inline-flex";
         };
 
-        function onclickChanges2(secMsg, word) {
-            encodeBtn.disabled = true;
-            // step3.innerHTML = "";
-            let msg2 = document.createElement("span");
-            msg2.className = "text2";
-            msg2.innerHTML = secMsg;
-            // step3.appendChild(msg2);
-            let msg3 = document.createElement("span");
-            msg3.className = "text2";
-            msg3.innerHTML = word + " file will be downloaded automatically!";
-            // step3.appendChild(msg3);
-        }
 
         function myDownloadFile(fileName, text) {
             let a = document.createElement("a");
             a.href = "data:application/octet-stream," + encodeURIComponent(text);
             a.download = fileName;
             a.click();
-        }
-
-        function ondownloadChanges(outputMsg) {
-            // step3.innerHTML = "";
-            let img = document.createElement("img");
-            img.src = "/static/img/done.jpg";
-            img.id = "doneImg";
-            // step3.appendChild(img);
-            var br = document.createElement("br");
-            // step3.appendChild(br);
-            let msg3 = document.createElement("span");
-            msg3.className = "text2";
-            msg3.innerHTML = outputMsg;
-            // step3.appendChild(msg3);
+            document.getElementById("redirect").click();
         }
 
         decompress()
-        // mess = document.getElementById("decomp").value;
-        // console.log(mess);
     </script>
 </body>
 
 </html>
-
-<!-- 
-  step 1
-upload file
-submit
-
-step2
-compress
-
-step3
-show link and 2 buttons
- -->
