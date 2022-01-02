@@ -1,7 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from compressor.models import Data
 
 def home(request):
+    return redirect("compressor")
+
+def compressor(request):
     axces=False
     return render(request,"index.html",{"axces":axces})
 
@@ -21,3 +24,5 @@ def ecodetext(request):
         ratio = encodedratio
         axces=True
         return render(request,"index.html",{"axces":axces,"link":link,"ratio":ratio})
+    else:
+        return redirect("compressor")
