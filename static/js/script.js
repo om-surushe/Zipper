@@ -356,5 +356,4 @@ window.onload = function () {
 		document.getElementById("step2").style.display = "none";
 	};
 
-
 };
