@@ -73,3 +73,14 @@ h2 {
 .header h5 {
   text-align: center;
 }
+
+.link-container{
+  background-color: aqua;
+  padding: 15px;
+}
+.copy-link p{
+  border: 2px solid red;
+  padding: 10px;
+  margin-left: 30%;
+  margin-right: 30%;
+}
