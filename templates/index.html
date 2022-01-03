@@ -52,7 +52,7 @@
   <header id="header" class="d-flex align-items-center">
     <div class="container d-flex align-items-center justify-content-between">
 
-      <h1 class="logo"><a href="index.html">Zipper<span>.</span></a></h1>
+      <h1 class="logo"><a href="{% url 'compressor' %}">Zipper<span>.</span></a></h1>
 
     </div>
   </header>
@@ -64,65 +64,16 @@
       <h1>Welcome to <span>Zipper</span></h1>
       <h2>We are team of talented designers making websites with Bootstrap</h2>
       <div class="d-flex">
-        <a href="#about" class="btn-get-started scrollto">Get Started</a>
+        <a class="btn btn-primary" href="#convert" role="button">Get Started</a>
       </div>
     </div>
-  </section><!-- End Hero -->
+  </section>
+  <!-- End Hero -->
 
   <main id="main">
-    <!-- ======= About Section ======= -->
-    <!-- <section id="about" class="about section-bg">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-title">
-          <h2>About</h2>
-          <h3>Find Out More <span>About Us</span></h3>
-          <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae
-            autem.</p>
-        </div>
-
-        <div class="row">
-          <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
-            <img src="{% static 'assets/img/about.jpg' %}" class="img-fluid" alt="">
-          </div>
-          <div class="col-lg-6 pt-4 pt-lg-0 content d-flex flex-column justify-content-center" data-aos="fade-up"
-            data-aos-delay="100">
-            <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h3>
-            <p class="fst-italic">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-              dolore
-              magna aliqua.
-            </p>
-            <ul>
-              <li>
-                <i class="bx bx-store-alt"></i>
-                <div>
-                  <h5>Ullamco laboris nisi ut aliquip consequat</h5>
-                  <p>Magni facilis facilis repellendus cum excepturi quaerat praesentium libre trade</p>
-                </div>
-              </li>
-              <li>
-                <i class="bx bx-images"></i>
-                <div>
-                  <h5>Magnam soluta odio exercitationem reprehenderi</h5>
-                  <p>Quo totam dolorum at pariatur aut distinctio dolorum laudantium illo direna pasata redi</p>
-                </div>
-              </li>
-            </ul>
-            <p>
-              Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-              voluptate
-              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-              culpa qui officia deserunt mollit anim id est laborum
-            </p>
-          </div>
-        </div>
-      </div>
-    </section> -->
-    <!-- End About Section -->
-
+    
     <!-- Compress -->
-    <section id="compress" class="about section-bg">
+    <section id="convert" class="about section-bg">
       <div class="container" data-aos="fade-up">
 
         {% if axces %}
@@ -134,7 +85,6 @@
           <div class="copy-link">
             <h6 id="first">{{link}}</h6>
           </div>
-          <!-- <div class="copy-btn" ><button id="first-button" onclick="copyText('first');" title="Copy Text">Copy</button> -->
           <div class="copy-btn" id="first-button" onclick="copyText('first');" title="Copy Text">Copy Link
           </div>
           <a class="copy-btn" href="{% url 'compressor' %}" name="redirect2" id="redirect2">Compress another file</a>
@@ -146,12 +96,7 @@
               <h2>Compress</h2>
               <h3>Upload a <span>Text File</span></h3>
             </div>
-            <!-- <form action="" method="POST" class="submitform">
-          {% csrf_token %}
-          <input class="btn btn-outline-warning" type="file" name="uploadfile" id="uploadfile" /><br />
-          <input class="btn-get-started scrollto" type="button" id="submitbtn" value="Submit" />
-        </form> -->
-
+            
             <form action="" method="POST" class="submitform">
               {% csrf_token %}
               <div class="input-group submitform">
@@ -242,7 +187,8 @@
                   <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                 </p>
               </div>
-            </div><!-- End testimonial item -->
+            </div>
+            <!-- End testimonial item -->
 
             <div class="swiper-slide">
               <div class="testimonial-item">
@@ -256,7 +202,8 @@
                   <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                 </p>
               </div>
-            </div><!-- End testimonial item -->
+            </div>
+            <!-- End testimonial item -->
 
             <div class="swiper-slide">
               <div class="testimonial-item">
